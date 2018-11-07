@@ -57,7 +57,7 @@ def webhook():
                         response = {"get_started": {"payload": "<postback_payload>"}}
 
                     if response == None:
-                        response = "Sorry, What is your Question, I didnt understand"
+                        response = "Sorry, What is your Question, I didn't understand"
 
                     bot.send_text_message(sender_id, response)
 
