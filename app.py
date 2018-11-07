@@ -55,11 +55,8 @@ def webhook():
                         #response = ''
                         # response += "<html><body> Hello </body></html>"
                         #response =
-                        if entity True:
-
-                            response = []
-
-                            for item in entity:
+                        response = []
+                        for item in entity:
                                 respons = {
                                     'title': item['title'],
                                     'buttons': [{
