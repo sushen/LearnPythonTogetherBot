@@ -54,7 +54,7 @@ def webhook():
                     elif entity == 'greetings':
                         #response = ''
                         # response += "<html><body> Hello </body></html>"
-                        response = {"get_started": {"payload": "<postback_payload>"}}
+                        response = curl -X POST -H "Content-Type: application/json" -d '{  "get_started": {"payload": "<postback_payload>"}}
 
                     if response == None:
                         response = "Sorry, What is your Question, I didn't understand"
