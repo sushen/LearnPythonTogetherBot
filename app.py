@@ -57,16 +57,16 @@ def webhook():
                         #response =
                         response = []
                         for item in entity:
-                                respons = {
-                                    'title': item['title'],
-                                    'buttons': [{
-                                        'type': 'web_url',
-                                        'title': "Read more",
-                                        'url': item['link']
-                                    }],
-                                    'image_url': item['img']
-                                }
-                                response.append(respons)
+                            respons = {
+                                'title': item['title'],
+                                'buttons': [{
+                                    'type': 'web_url',
+                                    'title': "Read more",
+                                    'url': item['link']
+                                }],
+                                'image_url': item['img']
+                            }
+                            response.append(respons)
 
                         return response
 
