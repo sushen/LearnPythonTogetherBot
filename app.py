@@ -55,21 +55,21 @@ def webhook():
                         #response = ''
                         # response += "<html><body> Hello </body></html>"
                         #response =
-                        news_items = entity
+                        if news_items == entity:
 
-                        response = []
+                            response = []
 
-                        for item in news_items:
-                            respons = {
-                                'title': item['title'],
-                                'buttons': [{
-                                    'type': 'web_url',
-                                    'title': "Read more",
-                                    'url': item['link']
-                                }],
-                                'image_url': item['img']
-                            }
-                            response.append(respons)
+                            for item in news_items:
+                                respons = {
+                                    'title': item['title'],
+                                    'buttons': [{
+                                        'type': 'web_url',
+                                        'title': "Read more",
+                                        'url': item['link']
+                                    }],
+                                    'image_url': item['img']
+                                }
+                                response.append(respons)
 
                         return response
 
