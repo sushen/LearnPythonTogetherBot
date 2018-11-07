@@ -55,11 +55,9 @@ def webhook():
                     elif entity == 'greetings':
                         response = 'Hello, How I help you.'
 
-
-                        if response == None:
-                            response = "Sorry, What is your Question, I didnt understand"
-
-                        bot.send_text_message(sender_id, response)
+                    if response == None:
+                        response = "Sorry, What is your Question, I didnt understand"
+                    bot.send_text_message(sender_id, response)
         return "ok", 200
 
     # this for print nice log and its need pymessenger library
