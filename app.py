@@ -53,18 +53,7 @@ def webhook():
                     elif entity == 'location':
                         response = "Ok, so you live in {0}. Here are top headlines from {0}".format(str(value))
                     elif entity == 'greetings':
-                        response = '{
-                            "title": "<TITLE_TEXT>",
-                            "subtitle": "<SUBTITLE_TEXT>",
-                            "image_url": "<IMAGE_URL_FOR_THUMBNAIL>",
-                            "buttons": [ < BUTTON_OBJECT >],
-                            "default_action": {
-                                              "type": "web_url",
-                                              "url": "<URL_TO_OPEN_WHEN_ITEM_IS_TAPPED>",
-                                              "messenger_extensions": < TRUE | FALSE >,
-                            "webview_height_ratio": "<COMPACT | TALL | FULL>"
-                            }
-                        }'
+                        response = 'Hello'
 
 
                         if response == None:
