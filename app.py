@@ -52,7 +52,7 @@ def webhook():
                         response = "Ok, I will send you the {} news".format(str(value))
                     elif entity == 'location':
                         response = "Ok, so you live in {0}. Here are top headlines from {0}".format(str(value))
-                    elif entity == 'wit/greetings':
+                    elif entity == 'greetings':
                         response = "Ok, so you live in {0}. Here are top headlines from {0}".format(str(value))
 
                     if response == None:
