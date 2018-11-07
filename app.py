@@ -6,7 +6,7 @@ from utils import wit_response
 
 app = Flask(__name__)
 
-FB_ACCESS_TOKEN = "EAADrJVpQGToBAHvbQvZBhgRgqjYCeSQdvobiOX6GO8bvlJ8iIR1aFIRLSVZCIbSREjObUzDB9As2ySVHZCSYWbiky2PZBCMeh2plVHEb4ZCAETuNvJXOZAoHuejEcFFQC628lzjXGAjWXZAJTgDwxXFYFvUojl4rOgZAxuK91ZATZCPQZDZD"
+FB_ACCESS_TOKEN = "EAAagZBYCBTiMBAB4g8uZBOiS2DwnjCSVTPEwBZA9wdJyfCbZBVeWg0FPMMjYoUDwZAZBHGQ8lAfbIZBmCmOaOsNLu2XJkVHwJIrUd6Bu48GN096mO3VKVDf6A6VtFJywHxJk7IRb3RqLiHRT2Ry8OAWbA39mUwm45onyaYjx2g1AgZDZD"
 bot = Bot(FB_ACCESS_TOKEN)
 
 VERIFICATION_TOKEN = "hello"
@@ -14,15 +14,14 @@ VERIFICATION_TOKEN = "hello"
 
 @app.route('/', methods=['GET'])
 def verify():
-    # this block of code is for Web hook verification
+    # Web hook verification
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
         if not request.args.get("hub.verify_token") == "hello":
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
-    return "App Creat By Sushen Biswas To Know more Please Contact Sushen Biswas", 200
+    return "Hello world", 200
 
 
-# this is for posting massage to the log in json format
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
@@ -57,13 +56,17 @@ def webhook():
 
                     if response == None:
                         response = "Sorry, What is your Question, I didnt understand"
+
                     bot.send_text_message(sender_id, response)
-        return "ok", 200
 
-    # this for print nice log and its need pymessenger library
-    def log(message):
-        pprint(message)
-        sys.stdout.flush()
+    return "ok", 200
 
-    if __name__ == "__main__":
-        app.run(use_reloader=True)
+
+def log(message):
+    # previously it was print now I just Use Petty Print
+    pprint(message)
+    sys.stdout.flush()
+
+
+if __name__ == "__main__":
+    app.run(use_reloader=True)
