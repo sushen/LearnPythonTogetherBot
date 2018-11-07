@@ -1,2 +1,2 @@
-# YogaforCopmuterProgrammer
+# Yoga for Copmuter Programmer
 
