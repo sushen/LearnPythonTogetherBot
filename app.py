@@ -53,20 +53,30 @@ def webhook():
                     elif entity == 'location':
                         response = "Ok, so you live in {0}. Here are top headlines from {0}".format(str(value))
                     elif entity == 'greetings':
-                        response = "Hello,\nWelocme To Our Yoga for computer Programmer."
+                        response = {
+                            "title": "<TITLE_TEXT>",
+                            "subtitle": "<SUBTITLE_TEXT>",
+                            "image_url": "<IMAGE_URL_FOR_THUMBNAIL>",
+                            "buttons": [ < BUTTON_OBJECT >],
+                            "default_action": {
+                                              "type": "web_url",
+                                              "url": "<URL_TO_OPEN_WHEN_ITEM_IS_TAPPED>",
+                                              "messenger_extensions": < TRUE | FALSE >,
+                            "webview_height_ratio": "<COMPACT | TALL | FULL>"
+                            }
+                        }
 
-                    if response == None:
-                        response = "Sorry, I didnt understand"
 
-                    bot.send_text_message(sender_id, response)
-    return "ok", 200
+                        if response == None:
+                            response = "Sorry, I didnt understand"
 
+                        bot.send_text_message(sender_id, response)
+        return "ok", 200
 
-# this for print nice log and its need pymessenger library
-def log(message):
-    pprint(message)
-    sys.stdout.flush()
+    # this for print nice log and its need pymessenger library
+    def log(message):
+        pprint(message)
+        sys.stdout.flush()
 
-
-if __name__ == "__main__":
-    app.run(use_reloader=True)
+    if __name__ == "__main__":
+        app.run(use_reloader=True)
