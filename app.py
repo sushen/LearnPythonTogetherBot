@@ -57,7 +57,7 @@ def webhook():
 
 
                         if response == None:
-                            response = "Sorry, I didnt understand"
+                            response = "Sorry, What is your Question, I didnt understand"
 
                         bot.send_text_message(sender_id, response)
         return "ok", 200
