@@ -54,7 +54,24 @@ def webhook():
                     elif entity == 'greetings':
                         #response = ''
                         # response += "<html><body> Hello </body></html>"
-                        response = curl -X POST -H "Content-Type: application/json" -d '{  "get_started": {"payload": "<postback_payload>"}}
+                        #response =
+                        news_items = entity
+
+                        response = []
+
+                        for item in news_items:
+                            respons = {
+                                'title': item['title'],
+                                'buttons': [{
+                                    'type': 'web_url',
+                                    'title': "Read more",
+                                    'url': item['link']
+                                }],
+                                'image_url': item['img']
+                            }
+                            response.append(respons)
+
+                        return response
 
                     if response == None:
                         response = "Sorry, What is your Question, I didn't understand"
