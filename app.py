@@ -53,6 +53,9 @@ def webhook():
                         response = "Ok, so you live in {0}. Here are top headlines from {0}".format(str(value))
                     elif entity == 'learn_python':
                         response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
+                    elif entity == 'agree':
+                        response = 'এগুলো যোগার করুন :\n১. কথা বল ও শোনার জন্য (হেডফোন) \n২.আমরা যোগাযোগে যে সফটওয়্যার ব্যাবহার করি (Google Hangout)\nএগুলো থাকলে লিখুন আমার “                        response = 'এগুলো যোগার করুন :\n১. কথা বল ও শোনার জন্য (হেডফোন) \n২.আমরা যোগাযোগে যে সফটওয়্যার ব্যাবহার করি (Google Hangout)\nএগুলো থাকলে লিখুন আমার “                         response = 'এগুলো যোগার করুন :\n১. কথা বল ও শোনার জন্য (হেডফোন) \n২.আমরা যোগাযোগে যে সফটওয়্যার ব্যাবহার করি (Google Hangout)\nএগুলো থাকলে লিখুন আমার “ আছে ” '
+
 
                     elif entity == 'greetings':
                         response = 'আমি ভাল । আপনি ভাল আছেন?'
