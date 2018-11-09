@@ -71,7 +71,7 @@ def webhook():
                         # return response
 
                     if response == None:
-                        response = "Sorry, What is your Question, I didn't understand"
+                        response = "বাংলাতে লিখুন আমি ইংরেজী বুঝি না ।"
 
                     bot.send_text_message(sender_id, response)
 
