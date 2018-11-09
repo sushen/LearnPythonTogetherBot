@@ -51,7 +51,7 @@ def webhook():
                         response = "Ok, I will send you the {} news".format(str(value))
                     elif entity == 'location':
                         response = "Ok, so you live in {0}. Here are top headlines from {0}".format(str(value))
-                    elif entity == 'wit/thanks':
+                    elif entity == 'thanks':
                         response = 'প্রতিদিন ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় কোরতে পারবেন।'
                     elif entity == 'greetings':
                         response = 'বাংলা ভাষায় স্বাগতম'
