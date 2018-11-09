@@ -61,7 +61,7 @@ def webhook():
                     elif entity == 'greetings':
                         response = 'আমি ভাল । আপনি ভাল আছেন?'
                     elif entity == 'thanks':
-                        response = 'প্রতিদিন ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় কোরতে পারবেন।'
+                        response = 'আপনাকেও । আরও জানতে চাইলে যোগাযোগ করুন'
 
                     if response == None:
                         response = "বাংলাতে লিখুন আমি ইংরেজী বুঝি না ।"
