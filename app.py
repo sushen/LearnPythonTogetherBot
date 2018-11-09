@@ -52,7 +52,7 @@ def webhook():
                     elif entity == 'location':
                         response = "Ok, so you live in {0}. Here are top headlines from {0}".format(str(value))
                     elif entity == 'greetings':
-                        response = 'Welcome, Now we are in testing mode, Please Contact Later'
+                        response = 'বাংলা ভাষায় স্বাগতম'
                         # response += "<html><body> Hello </body></html>"
                         #response =
                         # response = []
