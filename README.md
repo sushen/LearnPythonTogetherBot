@@ -1,2 +1,2 @@
-# Yoga for Copmuter Programmer
+# Learn Python Together Bot
 
