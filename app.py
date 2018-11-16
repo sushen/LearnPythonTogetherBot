@@ -6,6 +6,7 @@ from utils import wit_response
 
 app = Flask(__name__)
 
+# Facebook apps link:   https://developers.facebook.com/apps/2222049801408664/dashboard/
 FB_ACCESS_TOKEN = "EAAfk8UkWEJgBAIIX1hzUoRXZA4OWlh7QjLeA5nCmS9bTWzbOwyiZBUqqX9ZAWPlihNFSqBoKVtDQVx0YaR9zFtP8j8UUsLahjmvLipWAQgZBW1p6BlvMp1VlVY6INjblCUUZAAUWjJ7a4c1uGcAY6bOjPPcerFF1P2JfCKCQVdAZDZD"
 bot = Bot(FB_ACCESS_TOKEN)
 
