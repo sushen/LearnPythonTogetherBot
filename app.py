@@ -62,7 +62,7 @@ def webhook():
                         response = 'আপনাকেও । আরও জানতে চাইলে যোগাযোগ করুন'
 
                     if response == None:
-                        response = "আমি বুদ্ধীহিন বাংলা রোবট ইংরেজী বুঝি না , বাংলাও কম বুঝি, আনেক কথা থাকলে ফর্মটি পুরন করুন । https://docs.google.com/forms/d/1S3KzdSU-g5THykGi7RhbqE2BqLmrdWXxV9J4dOLd1HU/prefill"
+                        response = "আমি বুদ্ধীহিন বাংলা রোবট ইংরেজী বুঝি না , বাংলাও কম বুঝি, আনেক কথা থাকলে ফর্মটি পুরন করুন । একজন সত্যি মানুষ এসে উত্তর দেবে । https://docs.google.com/forms/d/1S3KzdSU-g5THykGi7RhbqE2BqLmrdWXxV9J4dOLd1HU/prefill"
 
                     bot.send_text_message(sender_id, response)
 
