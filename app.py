@@ -47,11 +47,7 @@ def webhook():
                     response = None
 
                     entity, value = wit_response(messaging_text)
-                    if entity == 'newstype':
-                        response = "Ok, I will send you the {} news".format(str(value))
-                    elif entity == 'location':
-                        response = "Ok, so you live in {0}. Here are top headlines from {0}".format(str(value))
-                    elif entity == 'learn_python':
+                    if entity == 'learn_python':
                         response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
                     elif entity == 'agree':
                         response = 'এখানে যোগার করুন :\n১. কথা বল ও শোনার জন্য (হেডফোন) \n২.আমরা যোগাযোগে যে সফটওয়্যার ব্যাবহার করি (Google Hangout)\nএগুলো থাকলে লিখুন আমার “ আছে ” । '
