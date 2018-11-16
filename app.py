@@ -3,6 +3,7 @@ from flask import Flask, request
 from pprint import pprint
 from pymessenger import Bot
 from utils import wit_response
+from talk import hello
 
 app = Flask(__name__)
 
@@ -56,7 +57,7 @@ def webhook():
                         response = 'স্বাগতম আমাদের ক্লাসে ।'
 
                     elif entity == 'greetings':
-                        response = 'আমি ভাল । আপনি ভাল আছেন?'
+                        response = hello()
                     elif entity == 'thanks':
                         response = 'আপনাকেও । আরও জানতে চাইলে যোগাযোগ করুন'
 
