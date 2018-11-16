@@ -6,7 +6,7 @@ def talking():
 
     for greeting in greetings:
         facebook_template_Dictionary = {
-            'title': greeting['title']
+            'title': greeting[greetings]
         }
         template.append(facebook_template_Dictionary)
 
