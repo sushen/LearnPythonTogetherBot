@@ -4,6 +4,7 @@ from pprint import pprint
 from pymessenger import Bot
 from utils import wit_response
 from talk import template,talking
+from gnewsclient import gnewsclient
 
 app = Flask(__name__)
 
@@ -53,7 +54,9 @@ def webhook():
                     entity, value = wit_response(messaging_text)
 
                     if entity == 'greetings':
-                        response = talking(bot.send_text_message(sender_id, response))
+                        categories = wit_response(messaging_text)
+                        elements = template(categories)
+                        response = talking(bot.send_generic_message(sender_id,elements))
 
                     if entity == 'learn_python':
                         response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
