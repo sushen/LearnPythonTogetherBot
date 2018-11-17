@@ -57,7 +57,7 @@ def talking():
     return elements
 
 
-print(talking())
+# print(talking())
 
 # fruits = [{"template_type": "generic", "elements": [  "GENERIC_TEMPLATE",  "GENERIC_TEMPLATE" , ...]}]
 # for fruit in fruits:
