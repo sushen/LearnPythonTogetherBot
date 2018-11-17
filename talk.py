@@ -1,14 +1,13 @@
 def talking():
-
     # ** How I emplement a list in function
 
-    templates = [{
-                    "type":"web_url",
-                    "url":"https://www.messenger.com",
-                    "title":"Visit Messenger"
-                          }]
+    templates = [{"title": "Visit Messenger"},
+                 {"type": "web_url"},
+                 {"url": "https://www.messenger.com"
+                  }]
     for template in templates:
         return template
+
 
 print(talking())
 
