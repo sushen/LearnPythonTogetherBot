@@ -57,7 +57,7 @@ def webhook():
                         response = 'স্বাগতম আমাদের ক্লাসে ।'
 
                     elif entity == 'greetings':
-                        response = talking()
+                        response = template(categories)
                     elif entity == 'thanks':
                         response = 'আপনাকেও । আরও জানতে চাইলে যোগাযোগ করুন'
 
