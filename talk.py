@@ -9,4 +9,4 @@ def talking():
 
 # fruits = [{"template_type": "generic", "elements": [  "GENERIC_TEMPLATE",  "GENERIC_TEMPLATE" , ...]}]
 # for fruit in fruits:
-#     print(fruit)
+#      print(fruit)
