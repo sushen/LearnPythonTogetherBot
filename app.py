@@ -45,10 +45,16 @@ def webhook():
                     else:
                         messaging_text = 'no text'
 
+
+
                     # replace Echo Bot to wit ai
                     response = None
 
                     entity, value = wit_response(messaging_text)
+
+                    if entity == 'greetings':
+                        response = template(bot.send_text_message(sender_id, response))
+
                     if entity == 'learn_python':
                         response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
                     elif entity == 'agree':
@@ -56,8 +62,7 @@ def webhook():
                     elif entity == 'I_have':
                         response = 'স্বাগতম আমাদের ক্লাসে ।'
 
-                    elif entity == 'greetings':
-                        response = template('greetings')
+
                     elif entity == 'thanks':
                         response = 'আপনাকেও । আরও জানতে চাইলে যোগাযোগ করুন'
 

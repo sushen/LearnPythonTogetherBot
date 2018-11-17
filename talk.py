@@ -42,4 +42,4 @@ def template(categories):
     return elements
 
 
-print(template(talking("hello")))
+#print(template(talking("hello")))
