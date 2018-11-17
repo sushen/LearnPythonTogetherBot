@@ -1,12 +1,60 @@
 def talking():
     # ** How I emplement a list in function
 
-    templates = [{"title": "Visit Messenger"},
-                 {"type": "web_url"},
-                 {"url": "https://www.messenger.com"
-                  }]
+    templates = {
+        "recipient": {
+            "id": "<PSID>"
+        },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "button",
+                    "text": "What do you want to do next?",
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": "https://www.messenger.com",
+                            "title": "Visit Messenger"
+                        },
+                        {
+                            ...
+                        },
+                        {...}
+                    ]
+                }
+            }
+        }
+    }
+    elements = []
     for template in templates:
-        return template
+        element = {
+        "recipient": {
+            "id": "<PSID>"
+        },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "button",
+                    "text": "What do you want to do next?",
+                    "buttons": [
+                        {
+                            "type": "web_url",
+                            "url": "https://www.messenger.com",
+                            "title": "Visit Messenger"
+                        },
+                        {
+                            ...
+                        },
+                        {...}
+                    ]
+                }
+            }
+        }
+    }
+        elements.append(element)
+    return elements
 
 
 print(talking())
