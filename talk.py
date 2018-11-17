@@ -1,64 +1,45 @@
-def talking():
-    # ** How I emplement a list in function
+from wit import Wit
+from gnewsclient import gnewsclient
 
-    templates = {
-        "recipient": {
-            "id": "<PSID>"
-        },
-        "message": {
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "button",
-                    "text": "What do you want to do next?",
-                    "buttons": [
-                        {
-                            "type": "web_url",
-                            "url": "https://www.messenger.com",
-                            "title": "Visit Messenger"
-                        },
-                        {
-                            ...
-                        },
-                        {...}
-                    ]
-                }
-            }
-        }
-    }
+access_token = "OXUVKGL5TU7HIERIGBPWEVKCFIFBLRQK"
+
+client = Wit(access_token=access_token)
+
+
+def talking(message_text):
+    resp = client.message(message_text)
+    categories = {'greetings': None}
+
+    entities = list(resp['entities'])
+    for entity in entities:
+        categories[entity] = resp['entities'][entity][0]['value']
+
+    return categories
+
+
+def template(categories):
+    news_clint = gnewsclient()
+    news_clint.query = ''
+
+    if categories['greetings'] != None:
+        news_clint.query += categories['greetings'] + ' '
+
+    news_items = news_clint.get_news()
     elements = []
-    for template in templates:
+
+    for item in news_items:
         element = {
-        "recipient": {
-            "id": "<PSID>"
-        },
-        "message": {
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "button",
-                    "text": "What do you want to do next?",
-                    "buttons": [
-                        {
-                            "type": "web_url",
-                            "url": "https://www.messenger.com",
-                            "title": "Visit Messenger"
-                        },
-                        {
-                            ...
-                        },
-                        {...}
-                    ]
-                }
-            }
+            'title': item['title'],
+            'buttons': [{
+                'type': 'web_url',
+                'title': 'Read more',
+                'url':item['link']
+            }],
+            'image_url':item['img']
         }
-    }
         elements.append(element)
+
     return elements
 
 
-# print(talking())
-
-# fruits = [{"template_type": "generic", "elements": [  "GENERIC_TEMPLATE",  "GENERIC_TEMPLATE" , ...]}]
-# for fruit in fruits:
-#      print(fruit)
+print(template(talking("hello")))
