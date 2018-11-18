@@ -54,19 +54,19 @@ def webhook():
 
                     if entity == 'greetings':
                         response = '''{
-  "recipient":{
-    "id":"<PSID>"
-  },
-  "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"<TEMPLATE_TYPE>",
-        ...
-      }
-    }
-  }
-}'''
+                                      "recipient":{
+                                        "id":"recipient_id"
+                                      },
+                                      "message":{
+                                        "attachment":{
+                                          "type":"template",
+                                          "payload":{
+                                            "template_type":"<TEMPLATE_TYPE>",
+                                            ...
+                                          }
+                                        }
+                                      }
+                                    }'''
 
                     if entity == 'learn_python':
                         response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
