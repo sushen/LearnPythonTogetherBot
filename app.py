@@ -3,6 +3,7 @@ from flask import Flask, request
 from pprint import pprint
 from pymessenger import Bot
 from utils import wit_response
+import json
 from talk import template, talking
 from gnewsclient import gnewsclient
 
@@ -53,11 +54,19 @@ def webhook():
 
                     if entity == 'greetings':
                         response = '''{
-                        "content_type": "text",
-                        "title": "Search",
-                        "payload": "<POSTBACK_PAYLOAD>",
-                        "image_url": "http://example.com/img/red.png"
-                            }'''
+  "recipient":{
+    "id":"<PSID>"
+  },
+  "message":{
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"<TEMPLATE_TYPE>",
+        ...
+      }
+    }
+  }
+}'''
 
                     if entity == 'learn_python':
                         response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
