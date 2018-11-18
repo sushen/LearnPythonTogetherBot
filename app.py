@@ -54,23 +54,8 @@ def webhook():
 
                     if entity == 'greetings':
                         response = 'স্বাগতম '
-                        # '''{
-                        #               "recipient":{
-                        #                 "id":"recipient_id"
-                        #               },
-                        #               "message":{
-                        #                 "attachment":{
-                        #                   "type":"template",
-                        #                   "payload":{
-                        #                     "template_type":"<TEMPLATE_TYPE>",
-                        #                     ...
-                        #                   }
-                        #                 }
-                        #               }
-                        #             }'''
 
-
-                    if entity == 'learn_python':
+                    elif entity == 'learn_python':
                         response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
                     elif entity == 'agree':
                         response = 'এগুলো যোগার করুন :\n১. কথা বল ও শোনার জন্য (হেডফোন) \n২.আমরা যোগাযোগে যে সফটওয়্যার ব্যাবহার করি (Google Hangout)\nএগুলো থাকলে লিখুন আমার “ আছে ” । '
