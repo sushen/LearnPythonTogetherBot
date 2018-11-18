@@ -52,21 +52,21 @@ def webhook():
 
                     entity, value = wit_response(messaging_text)
 
-                    if entity == 'greetings':
-                        response = '''{
-                                      "recipient":{
-                                        "id":"recipient_id"
-                                      },
-                                      "message":{
-                                        "attachment":{
-                                          "type":"template",
-                                          "payload":{
-                                            "template_type":"<TEMPLATE_TYPE>",
-                                            ...
-                                          }
-                                        }
-                                      }
-                                    }'''
+                    # if entity == 'greetings':
+                    #     response = '''{
+                    #                   "recipient":{
+                    #                     "id":"recipient_id"
+                    #                   },
+                    #                   "message":{
+                    #                     "attachment":{
+                    #                       "type":"template",
+                    #                       "payload":{
+                    #                         "template_type":"<TEMPLATE_TYPE>",
+                    #                         ...
+                    #                       }
+                    #                     }
+                    #                   }
+                    #                 }'''
 
 
                     if entity == 'learn_python':
