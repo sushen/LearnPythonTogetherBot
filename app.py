@@ -67,8 +67,7 @@ def webhook():
                                         }
                                       }
                                     }'''
-                        response_data = json.load(response)
-                        #print(response_data)
+
 
                     if entity == 'learn_python':
                         response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
