@@ -3,7 +3,7 @@ from flask import Flask, request
 from pprint import pprint
 from pymessenger import Bot
 from utils import wit_response
-from talk import template,talking
+from talk import template, talking
 from gnewsclient import gnewsclient
 
 app = Flask(__name__)
@@ -46,17 +46,18 @@ def webhook():
                     else:
                         messaging_text = 'no text'
 
-
-
                     # replace Echo Bot to wit ai
                     response = None
 
                     entity, value = wit_response(messaging_text)
 
                     if entity == 'greetings':
-                        categories = wit_response(messaging_text)
-                        elements = template(categories)
-                        response = talking(bot.send_generic_message(sender_id,elements))
+                        response = '''{
+                        "content_type": "text",
+                        "title": "Search",
+                        "payload": "<POSTBACK_PAYLOAD>",
+                        "image_url": "http://example.com/img/red.png"
+                            }'''
 
                     if entity == 'learn_python':
                         response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
