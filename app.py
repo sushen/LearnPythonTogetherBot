@@ -6,6 +6,7 @@ from utils import wit_response
 import json
 from talk import template, talking
 from gnewsclient import gnewsclient
+from brody import send_message
 
 app = Flask(__name__)
 
@@ -53,7 +54,7 @@ def webhook():
                     entity, value = wit_response(messaging_text)
 
                     if entity == 'greetings':
-                        response = 'স্বাগতম '
+                        response = send_message()
 
                     elif entity == 'learn_python':
                         response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
