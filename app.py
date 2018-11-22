@@ -1,12 +1,8 @@
 import sys
 from flask import Flask, request
 from pprint import pprint
-from pymessenger import Bot
 from utils import wit_response
-import json
-from talk import template, talking
-from gnewsclient import gnewsclient
-from brody import send_message
+from pymessenger import Bot, Element
 
 app = Flask(__name__)
 
@@ -32,7 +28,7 @@ def webhook():
     data = request.get_json()
     log(data)
 
-    # Necessary Code that extract json data facebook send
+    # **Necessary Code that extract json data facebook send**
     if data['object'] == 'page':
         for entry in data['entry']:
             for messaging_event in entry['messaging']:
@@ -48,29 +44,51 @@ def webhook():
                     else:
                         messaging_text = 'no text'
 
+                    # # Echo Bot
+                    # response = messaging_text
+                    # bot.send_text_message(sender_id, response)
+
+                    # greetings_response = {"payload": {
+                    #     "template_type": "button",
+                    #     "text": "What do you want to do next?",
+                    #     "buttons": [
+                    #         {
+                    #             "type": "web_url",
+                    #             "url": "https://www.messenger.com",
+                    #             "title": "Visit Messenger"
+                    #         },
+                    #
+                    #     ]
+                    # },
+                    # }
+
                     # replace Echo Bot to wit ai
                     response = None
 
                     entity, value = wit_response(messaging_text)
 
                     if entity == 'greetings':
-                        response = send_message()
+                        elements = []
+                        element = Element(title="test", image_url="<arsenal_logo.png>", subtitle="subtitle",
+                                          item_url="http://arsenal.com")
+                        elements.append(element)
 
-                    elif entity == 'learn_python':
-                        response = 'প্রতিদিন সকাল ১০.৩০ থেকে ১১.৩০ প্রজন্ত আনলাইনে ক্লাস হয় ।  কোরতে পারলে লিখুন “ পারব ”   ।'
-                    elif entity == 'agree':
-                        response = 'এগুলো যোগার করুন :\n১. কথা বল ও শোনার জন্য (হেডফোন) \n২.আমরা যোগাযোগে যে সফটওয়্যার ব্যাবহার করি (Google Hangout)\nএগুলো থাকলে লিখুন আমার “ আছে ” । '
-                    elif entity == 'I_have':
-                        response = 'স্বাগতম আমাদের ক্লাসে ।'
+                        bot.send_generic_message(recipient_id, elements)
 
 
                     elif entity == 'thanks':
-                        response = 'আপনাকেও । আরও জানতে চাইলে যোগাযোগ করুন'
+                        response = " Thank you too"
+                        bot.send_text_message(sender_id, response)
 
                     if response == None:
-                        response = "আমি বুদ্ধীহিন বাংলা রোবট ইংরেজী বুঝি না , বাংলাও কম বুঝি, আনেক কথা থাকলে ফর্মটি পুরন করুন । একজন সত্যি মানুষ এসে উত্তর দেবে । https://docs.google.com/forms/d/1S3KzdSU-g5THykGi7RhbqE2BqLmrdWXxV9J4dOLd1HU/prefill"
+                        # response = "We are testing"
+                        # bot.send_text_message(sender_id, response)
+                        elements = []
+                        element = Element(title="test", image_url="<arsenal_logo.png>", subtitle="subtitle",
+                                          item_url="http://arsenal.com")
+                        elements.append(element)
 
-                    bot.send_text_message(sender_id, response)
+                        bot.send_generic_message(recipient_id, elements)
 
     return "ok", 200
 
@@ -82,4 +100,4 @@ def log(message):
 
 
 if __name__ == "__main__":
-    app.run(use_reloader=True)
+    app.run(port=80, use_reloader=True)
