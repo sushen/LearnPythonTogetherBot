@@ -63,9 +63,9 @@ def webhook():
                         response = " thank you too."
                         bot.send_text_message(sender_id, response)
 
-                    if response == None:
-                        response = "You Have to type or Kindly Use Our Menu."
-                        bot.send_text_message(sender_id, response)
+                    # if response == None:
+                    #     response = "You Have to type or Kindly Use Our Menu."
+                    #     bot.send_text_message(sender_id, response)
 
     return "ok", 200
 
