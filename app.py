@@ -1,14 +1,12 @@
-import os, sys
-from flask import Flask, request
-from utils import wit_response, get_news_elements
-from utilsforSimpleMassage import wit_response
+import sys
+from flask import Flask, request, render_template
+from utils import wit_response
 from pymessenger import Bot, Element, Button
-from fbmq import Attachment, Template, QuickReply, Page
 
+
+app = Flask(__name__)
 from pprint import pprint
 
-# from pymessenger2.bot import Bot
-# from pymessenger2 import Element
 
 app = Flask(__name__)
 
@@ -19,7 +17,6 @@ bot = Bot(FB_ACCESS_TOKEN)
 
 VERIFICATION_TOKEN = "hello"
 
-
 @app.route('/', methods=['GET'])
 def verify():
     # Web hook verification
@@ -27,7 +24,7 @@ def verify():
         if not request.args.get("hub.verify_token") == "hello":
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
-    return "Hello World", 200
+    return render_template("index.html")
 
 
 @app.route('/', methods=['POST'])
@@ -59,67 +56,47 @@ def webhook():
                     entity, value = wit_response(messaging_text)
 
                     if entity == 'greetings':
-                        Page.send(self(), recipient_id=sender_id, message="hello world!")
+                        response = " hi, How Can I help you. "
+                        bot.send_text_message(sender_id, response)
 
-    # # .........From Wit * this work and bring Generic template...........
-                    # categories = wit_response(messaging_text)
-                    # elements = get_news_elements(categories)
-                    # bot.send_generic_message(sender_id, elements)
+                    elif entity == 'Ad_sense_income':
+                        response = " Do you want to know how to start income using Adsense?"
+                        bot.send_text_message(sender_id, response)
 
-                    # # Echo Bot
-                    # response = messaging_text
-                    # bot.send_text_message(sender_id, response)
+                    elif entity == 'yes':
+                        response = "you are welcome. please give me your phone number."
+                        bot.send_text_message(sender_id, response)
 
-                    # replace Echo Bot to wit ai
-                    # response = None
-                    #
-                    # entity, value = wit_response(messaging_text)
-                    #
-                    # if entity == 'greetings':
+                    elif entity == 'phone_number':
+                        response = "Thank you for giving your phone number. please fill the form so we can start working with you. https://sites.google.com/view/income-guru/"
+                        bot.send_text_message(sender_id, response)
 
+                    elif entity == 'about_business':
+                        response = "Of course. tell me what you want to know."
+                        bot.send_text_message(sender_id, response)
 
-    #........... for Simple text * this thing only work...........
+                    elif entity == 'assist_me':
+                        response = "I am here. Ask your question dear."
+                        bot.send_text_message(sender_id, response)
 
-                        # response = " Welcome"
-                        # bot.send_text_message(sender_id, response)
-
-
-    # # ..........For buttons * its not working ..............
-    #                     buttons = []
-    #                     button = Button(title='Arsenal', type='web_url', url='http://arsenal.com')
-    #                     buttons.append(button)
-    #                     button = Button(title='Other', type='postback', payload='other')
-    #                     buttons.append(button)
-    #                     text = 'Select'
-    #                     bot.send_button_message(recipient_id, text, buttons)
-    #                     result = bot.send_button_message(recipient_id, text, buttons)
-    #                     assert type(result) is dict
-    #                     assert result.get('message_id') is not None
-    #                     assert result.get('recipient_id') is not None
-
-    # # ..........For Image * its not working ..............
-    #                     image_url = "https://www.pexels.com/photo/nature-summer-purple-yellow-36753/"
-    #                     bot.send_image_url(recipient_id, image_url)
-
-    # # ...........For  Generic Template * its not working...........
-    #                     elements = []
-    #                     element = Element(title="test", image_url="<arsenal_logo.png>", subtitle="subtitle",
-    #                                       item_url="http://arsenal.com")
-    #                     elements.append(element)
-    #
-    #                     bot.send_generic_message(recipient_id, elements)
+                    elif entity == 'recommend':
+                        response = "My recommendation will start earning with Adsense."
+                        bot.send_text_message(sender_id, response)
 
                     elif entity == 'thanks':
-                        response = " Thank you too"
+                        response = " thank you too."
                         bot.send_text_message(sender_id, response)
 
                     if response == None:
-                        response = "We are testing"
+                        response = "Eeverthing is for you fahim."
                         bot.send_text_message(sender_id, response)
-                        # image_url = "https://www.pexels.com/photo/nature-summer-purple-yellow-36753/"
-                        # bot.send_image_url(recipient_id, image_url)
 
     return "ok", 200
+
+
+@app.route('/Privacy-Policy')
+def privacy_policy():
+    return render_template("Privacy-Policy.html")
 
 
 def log(message):
