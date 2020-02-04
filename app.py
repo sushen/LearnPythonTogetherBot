@@ -59,36 +59,12 @@ def webhook():
                         response = " hi, How Can I help you. "
                         bot.send_text_message(sender_id, response)
 
-                    elif entity == 'Ad_sense_income':
-                        response = " Do you want to know how to start income using Adsense?"
-                        bot.send_text_message(sender_id, response)
-
-                    elif entity == 'yes':
-                        response = "you are welcome. please give me your phone number."
-                        bot.send_text_message(sender_id, response)
-
-                    elif entity == 'phone_number':
-                        response = "Thank you for giving your phone number. please fill the form so we can start working with you. https://sites.google.com/view/income-guru/"
-                        bot.send_text_message(sender_id, response)
-
-                    elif entity == 'about_business':
-                        response = "Of course. tell me what you want to know."
-                        bot.send_text_message(sender_id, response)
-
-                    elif entity == 'assist_me':
-                        response = "I am here. Ask your question dear."
-                        bot.send_text_message(sender_id, response)
-
-                    elif entity == 'recommend':
-                        response = "My recommendation will start earning with Adsense."
-                        bot.send_text_message(sender_id, response)
-
                     elif entity == 'thanks':
                         response = " thank you too."
                         bot.send_text_message(sender_id, response)
 
                     if response == None:
-                        response = "Eeverthing is for you fahim."
+                        response = "You Have to type or Kindly Use Our Menu."
                         bot.send_text_message(sender_id, response)
 
     return "ok", 200
